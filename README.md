@@ -49,25 +49,30 @@ Below shows the overall structure of this repository. Bascially, in this tutoria
 ```
 
 ## Task 0. Global feature extraction
-<!-- ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5ce77541-1394-4dfc-9844-fb3449acf713/Untitled.png) -->
+![image](https://github.com/KorMachine/Internship_Week1/assets/43216580/d02a0a66-4f82-4e15-9245-9d8003a48c5e)
 
 PointNet takes 3D point clouds(# points, 3) as inputs and extracts a 1024-sized global feature latent vector, which contains the geometric information of the input point clouds. This global feature vector will be used in the downstream tasks; point cloud classification, segmentation, and auto-encoding. In this part, you implement PointNetFeat model that only results out the global feature vector so that you can utilize this model for implementing the remaining 3 tasks.
 
 ### To-dos
+```
+- model.py
+```
 - Fill in the blank in model.py > PointNetFeat class
 
 ※ When implementing PointNetFeat, you can utilize STDkd we give you in model.py code. 
 
 
-
 ## Task 1. Point cloud classification
 **_Success condition: You will get the perfect score if you achieve test accuracy over 85%._**
-
-<!-- ![image (35).png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7600d40d-181e-46bf-89ff-764c303c1914/image_(35).png) -->
+![image](https://github.com/KorMachine/Internship_Week1/assets/43216580/d3471b20-5325-47ab-a68e-97a6774dcc69)
 
 In point cloud classification tasks, PointNet inputs point clouds (# points, 3) and generates a 1024-sized global feature latent vector, which is then reduced to the number of categories (k) through multi-layer perceptrons, forming logits for each category. 
 
 ### To-dos
+```
+- model.py
+- train_cls.py
+```
 - Fill in the blank in [model.py](http://model.py) > PointNetCls
 - Fill in the blank in train_cls.py > step and train_step
 - Train the model by the following command.
@@ -87,25 +92,18 @@ On ModelNet40 test set:
 | Ours (w/ feature trans.)       | 87.7 %      | 
 
 
-## Auto-Encoding
-**_PA1: You will get the perfect score if you achieve chamfer distance lower than 0.005 on the test set._**
+## Task 2. Point cloud part Segmentation
+**_Success condition: You will get the perfect score if you achieve test mIoU over 80%._**
+![image](https://github.com/KorMachine/Internship_Week1/assets/43216580/af71824a-bb94-48af-a8bd-2a81e1ce6e56)
 
-To train auto-encoder, run:
-```
-python train_ae.py
-```
-On ModelNet40 test set:
-|        | Chamfer Dist. |
-| ------ | ------------- |
-| Ours   | 0.0043        |
+For segmentation tasks, PointNet concatenates the second transformed feature with the global latent vector to form a point-wise feature tensor, which is then passed through an MLP to produce logits for m part labels.
 
-## Part Segmentation
-### TODOs
+### To-dos
 ```
 - model.py
 - train_seg.py
 ```
-**_PA2: You will get the perfect score if you achieve test mIoU over 80%._**
+
 
 In `model.py`, you should implement PointNet part segmentation architecture on your own. We marked where you should fill the code in as `# TODO: Implement this`.
 
@@ -129,79 +127,21 @@ We provide some util codes to help you. Feel free to use them if you need.
 - utils/model_checkpoint.py: tracks model's metric and automatically save only topk checkpoints.
 - visualization.ipynb: simple visulization code on jupyter lab.
 
+## Task 3. Point cloud Auto-Encoding
+**_success condition: You will get the perfect score if you achieve chamfer distance lower than 0.005 on the test set._**
+![image](https://github.com/KorMachine/Internship_Week1/assets/43216580/eb932953-3ecb-4b8c-9129-03b15494bcb5)
+
+The PointNet Auto-encoder comprises an encoder that inputs point clouds and produces a 1024-sized global feature latent vector, and an MLP decoder that expands this latent vector incrementally until it reaches N*3. This tensor is reshaped into (N, 3), representing N points in 3D coordinates.
+
+To train auto-encoder, run:
+```
+python train_ae.py
+```
+On ModelNet40 test set:
+|        | Chamfer Dist. |
+| ------ | ------------- |
+| Ours   | 0.0043        |
+
+
 ## Reference
 - [PointNet: Deep Learning on Point Sets for 3D Classification and Segmentation](https://arxiv.org/abs/1612.00593)
-<!-- 
-- `Classification`
-<img width="647" alt="스크린샷 2022-03-14 오후 8 25 29" src="https://user-images.githubusercontent.com/37788686/158196370-c0239f51-1974-4934-bcfb-1582a0da61d4.png">
-
-- `Auto-Encoder`
-<img width="811" alt="스크린샷 2022-03-14 오후 8 24 20" src="https://user-images.githubusercontent.com/37788686/158196598-618ec2f8-bd47-4d3e-a24f-da7073b24631.png">
-
-### What to hand in
-In a single document, write your name and student ID, add screenshots of the outputs (one for each task; thus two) like the ones above, and submit the document as a **PDF** file to KLMS.
-
-If you want, you can implement the PointNet classification network and the autoencoder yourself! (e.g., using TensorFlow). In this case, submit your code (along with the snapshot document) as a **ZIP** file.
-
-If you implement chamfer distance yourself, take the mean across both batches and points.  
-_I.e., given P1 [B,N,3] and P2 [B,N,3], Loss = ChamferDistance(P1, P2) / (B\*N), where B and N are the batch size and the number of points, respectively._
-
-### Grading
-_You'll get a zero score if you implement yourself but don't submit your code._ Otherwise,
-
-- 100% score:
-  - If you submit on time, and
-  - the document includes everything (your name, student ID, and two snapshots; one for classification and the other for auto-encoding),
-  - and your results are on par with ours:
-
-| Classification  | Auto-Encoding      |
-| --------------  | -------------      |
-| test acc >= 85% | test loss <= 0.005 |
-
-- 50% score:
-  - If you submit on time, but
-    - either one of the snapshots is missing, OR
-    - one of the results is worse than the threshold above.
-
-- 0% score: Otherwise.
-
-
-## Programming Assignment 2 (Segmentation)
-<b>Due: Mar 30 (Wed) 23:59 KST</b>
-
-The goal of the second assignment is to implement PointNet segmentation network based on our code.
-Our code includes script automatically downloading the [ShapeNet](https://shapenet.org/) dataset, a dataloader, main training/test loops, and the evaluation code computing mIoU. **Implement the PointNet segmentation network in the `PointNetPartSeg` class of the `model.py` file. You can even use the code in the Internet to fill in this part!**
-
-**Check out Figure 2 (not Figure 9) in the [paper](https://arxiv.org/abs/1612.00593)) for the details of the architecture, and feel free to leave out T-Nets**
-
-Run `train_seg.py` after filling in the `PointNetPartSeg` class of the `model.py` file. Then, the code will show the test mIoU and save some images (`segmentation_samples.png`) showing the part segmentation results:
-
-<img width="660" alt="스크린샷 2022-03-14 오후 10 37 41" src="https://user-images.githubusercontent.com/37788686/158196815-da63ec47-04b2-468a-9247-1dae80dc612e.png">
-  
-<img width="424" alt="스크린샷 2022-03-15 오전 12 03 56" src="https://user-images.githubusercontent.com/37788686/158200389-a2299163-8b60-4462-bc1a-491e87355b0f.png">
-
-### What to hand in
-Submit the followings to KLMS:
-- A single **PDF** file including your name, student ID, a screenshot for mIoU, and the output image visualizing some segmentation results (like the ones above).
-- A **ZIP** file including ALL the code (not just the part you implemented but all).
-
-You can also implement the entire pipeline yourself if you want.
-
-### Grading
-_You'll get a zero score if you don't submit your code._ Otherwise,
-
-- 100% score:
-  - If you submit on time, and
-  - the document includes everything (your name, student ID, and a mIoU snapshot, a segmentation visualization image),
-  - and your result is on par with ours:
-
-| Segmentation |
-| -----------  |
-| mIoU >= 80%  |
-
-- 50% score:
-  - If you submit on time, but
-    - either one of the results (a mIoU snapshot or a segmentation visualization image) is missing, OR
-    - the result is worse than the threshold above.
-
-- 0% score: Otherwise. -->
