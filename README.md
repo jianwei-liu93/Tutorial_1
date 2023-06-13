@@ -48,14 +48,34 @@ Below shows the overall structure of this repository. Bascially, in this tutoria
     └── segmentation
 ```
 
-## Classification
-**_PA1: You will get the perfect score if you achieve test accuracy over 85%._**
+## Task 0. Global feature extraction
+<!-- ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5ce77541-1394-4dfc-9844-fb3449acf713/Untitled.png) -->
 
-You can train and test a model on ModelNet40 classification by running `train_cls.py`.
-It will automatically download ModelNet40 dataset on `data` directory.
-```
+PointNet takes 3D point clouds(# points, 3) as inputs and extracts a 1024-sized global feature latent vector, which contains the geometric information of the input point clouds. This global feature vector will be used in the downstream tasks; point cloud classification, segmentation, and auto-encoding. In this part, you implement PointNetFeat model that only results out the global feature vector so that you can utilize this model for implementing the remaining 3 tasks.
+
+### To-dos
+- Fill in the blank in model.py > PointNetFeat class
+
+※ When implementing PointNetFeat, you can utilize STDkd we give you in model.py code. 
+
+
+
+## Task 1. Point cloud classification
+**_Success condition: You will get the perfect score if you achieve test accuracy over 85%._**
+
+<!-- ![image (35).png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7600d40d-181e-46bf-89ff-764c303c1914/image_(35).png) -->
+
+In point cloud classification tasks, PointNet inputs point clouds (# points, 3) and generates a 1024-sized global feature latent vector, which is then reduced to the number of categories (k) through multi-layer perceptrons, forming logits for each category. 
+
+### To-dos
+- Fill in the blank in [model.py](http://model.py) > PointNetCls
+- Fill in the blank in train_cls.py > step and train_step
+- Train the model by the following command.
+
+```bash
 python train_cls.py [--epochs 100] [--batch_size 32] [--lr 1e-3] [--save]
 ```
+
 If you pass `--save` option, only the topk model checkpoints will be saved in `checkpoints` directory. 
 
 On ModelNet40 test set:
@@ -65,6 +85,7 @@ On ModelNet40 test set:
 | Paper                          | 89.2 %      |
 | Ours (w/o feature trans.)      | 88.6 %      |
 | Ours (w/ feature trans.)       | 87.7 %      | 
+
 
 ## Auto-Encoding
 **_PA1: You will get the perfect score if you achieve chamfer distance lower than 0.005 on the test set._**
