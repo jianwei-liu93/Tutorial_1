@@ -7,7 +7,6 @@ from model import PointNetAutoEncoder
 from dataloaders.modelnet import get_data_loaders
 from utils.metrics import Accuracy
 from utils.model_checkpoint import CheckpointManager
-from pytorch3d.loss.chamfer import chamfer_distance
 
 
 def step(points, model):
@@ -19,9 +18,8 @@ def step(points, model):
         - preds [B, N, 3]
     """
     # TODO : Implement step function for AutoEncoder.
-    points = points.to(device)
-    preds = model(points)
-    loss = chamfer_distance(points, preds)[0]
+    preds = None
+    loss = None
 
     return loss, preds
 
