@@ -1,6 +1,8 @@
 ## KAIST Geometric AI Lab - Internship Week 1
 Instructor: [Minhyuk Sung](https://mhsung.github.io/) (mhsung@kaist.ac.kr)
+
 Session Host: **Hyunjin Kim** (Lead), **Eunji Hong** (Support)
+
 Last Updated: Jun 13, 2023.
 
 If you have any question, feel free to ask us via Slack DM.
@@ -57,7 +59,7 @@ PointNet takes 3D point clouds(# points, 3) as inputs and extracts a 1024-sized 
 ```
 - model.py
 ```
-- Fill in the blank in model.py > PointNetFeat class
+- Fill in the **TODO** in model.py > PointNetFeat class
 
 ※ When implementing PointNetFeat, you can utilize STDkd we give you in model.py code. 
 
@@ -73,12 +75,12 @@ In point cloud classification tasks, PointNet inputs point clouds (# points, 3) 
 - model.py
 - train_cls.py
 ```
-- Fill in the blank in [model.py](http://model.py) > PointNetCls
-- Fill in the blank in train_cls.py > step and train_step
+- Fill in the **TODO** in `model.py` > `PointNetCls`
+- Fill in the **TODO** in `train_cls.py` > `step` and `train_step`
 - Train the model by the following command.
 
 ```bash
-python train_cls.py [--epochs 100] [--batch_size 32] [--lr 1e-3] [--save]
+python train_cls.py [--gpu 0] [--epochs 100] [--batch_size 32] [--lr 1e-3] [--save]
 ```
 
 If you pass `--save` option, only the topk model checkpoints will be saved in `checkpoints` directory. 
@@ -103,7 +105,13 @@ For segmentation tasks, PointNet concatenates the second transformed feature wit
 - model.py
 - train_seg.py
 ```
+- Fill in the **TODO** in `model.py` > `PointNetPartSeg`
+- Fill in the **TODO** in `train_seg.py` > `step` and `train_step`
+- Train the model by the following command.
 
+```bash
+python train_seg.py [--gpu 0] [--epochs 100] [--batch_size 32] [--lr 1e-3] [--save]
+```
 
 In `model.py`, you should implement PointNet part segmentation architecture on your own. We marked where you should fill the code in as `# TODO: Implement this`.
 
@@ -115,17 +123,12 @@ ShapeNet part dataset will automatically be downloaded on `data` directory when 
 
 We provide the code to measure instance mIoU in `utils/metrics.py`.
 
-You can refer to other existing codes on the internet, but **DO NOT COPY** other students'. We will use a **plagiarism checker**.
-
 On ShapeNet Part test set:
 |        | ins. mIoU |
 | ------ | --------- |
 | Paper  | 83.7 %    |
 | Ours   | 83.6 %    | 
-## FYI
-We provide some util codes to help you. Feel free to use them if you need.
-- utils/model_checkpoint.py: tracks model's metric and automatically save only topk checkpoints.
-- visualization.ipynb: simple visulization code on jupyter lab.
+
 
 ## Task 3. Point cloud auto-Encoding
 **_success condition: You will get the perfect score if you achieve chamfer distance lower than 0.005 on the test set._**
@@ -138,12 +141,12 @@ The PointNet Auto-encoder comprises an encoder that inputs point clouds and prod
 - model.py
 - train_seg.py
 ```
-- Fill in the blank in [model.py](http://model.py) > `PointNetAutoEncoder`
-- Fill in the blank in train_ae.py > `step` and `train_step`
+- Fill in the **TODO** in `model.py` > `PointNetAutoEncoder`
+- Fill in the **TODO** in `train_ae.py` > `step` and `train_step`
 - Train the model by the following command.
 
 ```
-python train_ae.py
+python train_ae.py [--gpu 0] [--epochs 100] [--batch_size 32] [--lr 1e-3] [--save]
 ```
 
 On ModelNet40 test set:
@@ -151,6 +154,11 @@ On ModelNet40 test set:
 | ------ | ------------- |
 | Ours   | 0.0043        |
 
+
+## FYI
+We provide some util codes to help you. Feel free to use them if you need.
+- utils/model_checkpoint.py: tracks model's metric and automatically save only topk checkpoints.
+- visualization.ipynb: simple visulization code on jupyter lab.
 
 ## Reference
 - [PointNet: Deep Learning on Point Sets for 3D Classification and Segmentation](https://arxiv.org/abs/1612.00593)
