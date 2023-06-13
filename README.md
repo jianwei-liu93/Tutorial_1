@@ -7,6 +7,8 @@ Last Updated: Jun 13, 2023.
 
 If you have any question, feel free to ask us via Slack DM.
 
+(Thanks to Juil Koo for providing the codebase.)
+
 ## Introduction to 3D Data
 <b>Due: Jul 3 (Mon) </b>
 
@@ -23,6 +25,8 @@ Below shows the overall structure of this repository. Bascially, in this tutoria
 ```
 
 ```
+pointnet
+│ 
 ├── model.py              <- PointNet models implementation. <TODO>
 │ 
 ├── dataloaders 
