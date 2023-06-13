@@ -51,7 +51,7 @@ Below shows the overall structure of this repository. Bascially, in this tutoria
 ```
 
 ## Task 0. Global feature extraction
-![image](https://github.com/KorMachine/Internship_Week1/assets/43216580/d02a0a66-4f82-4e15-9245-9d8003a48c5e)
+![image](Figure/feat.png)
 
 PointNet takes 3D point clouds(# points, 3) as inputs and extracts a 1024-sized global feature latent vector, which contains the geometric information of the input point clouds. This global feature vector will be used in the downstream tasks; point cloud classification, segmentation, and auto-encoding. In this part, you implement PointNetFeat model that only results out the global feature vector so that you can utilize this model for implementing the remaining 3 tasks.
 
@@ -66,7 +66,7 @@ PointNet takes 3D point clouds(# points, 3) as inputs and extracts a 1024-sized 
 
 ## Task 1. Point cloud classification
 **_Success condition: You will get the perfect score if you achieve test accuracy over 85%._**
-![image](https://github.com/KorMachine/Internship_Week1/assets/43216580/d3471b20-5325-47ab-a68e-97a6774dcc69)
+![image](Figure/cls.png)
 
 In point cloud classification tasks, PointNet inputs point clouds (# points, 3) and generates a 1024-sized global feature latent vector, which is then reduced to the number of categories (k) through multi-layer perceptrons, forming logits for each category. 
 
@@ -96,7 +96,7 @@ On ModelNet40 test set:
 
 ## Task 2. Point cloud part Segmentation
 **_Success condition: You will get the perfect score if you achieve test mIoU over 80%._**
-![image](https://github.com/KorMachine/Internship_Week1/assets/43216580/af71824a-bb94-48af-a8bd-2a81e1ce6e56)
+![image](Figure/seg.png)
 
 For segmentation tasks, PointNet concatenates the second transformed feature with the global latent vector to form a point-wise feature tensor, which is then passed through an MLP to produce logits for m part labels.
 
@@ -130,7 +130,7 @@ On ShapeNet Part test set:
 
 ## Task 3. Point cloud auto-Encoding
 **_success condition: You will get the perfect score if you achieve chamfer distance lower than 0.005 on the test set._**
-![image](https://github.com/KorMachine/Internship_Week1/assets/43216580/eb932953-3ecb-4b8c-9129-03b15494bcb5)
+![image](Figure/ae.png)
 
 The PointNet Auto-encoder comprises an encoder that inputs point clouds and produces a 1024-sized global feature latent vector, and an MLP decoder that expands this latent vector incrementally until it reaches N*3. This tensor is reshaped into (N, 3), representing N points in 3D coordinates.
 
