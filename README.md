@@ -113,8 +113,6 @@ For segmentation tasks, PointNet concatenates the second transformed feature wit
 python train_seg.py [--gpu 0] [--epochs 100] [--batch_size 32] [--lr 1e-3] [--save]
 ```
 
-In `model.py`, you should implement PointNet part segmentation architecture on your own. We marked where you should fill the code in as `# TODO: Implement this`.
-
 After implementing the network, call the network in `train_seg.py`. You should be able to see progress bars:
 
 ![image](https://user-images.githubusercontent.com/37788686/158202971-159e4dc3-199a-4cf2-9b12-c01059a06a4c.png)
