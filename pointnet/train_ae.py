@@ -7,7 +7,9 @@ from model import PointNetAutoEncoder
 from dataloaders.modelnet import get_data_loaders
 from utils.metrics import Accuracy
 from utils.model_checkpoint import CheckpointManager
+from chamferdist import ChamferDistance
 
+chamferDist = ChamferDistance() # you can compute chamfer distance between two point cloud pc1 and pc2 by chamferDist(pc1, pc2)
 
 def step(points, model):
     """
@@ -17,7 +19,8 @@ def step(points, model):
         - loss []
         - preds [B, N, 3]
     """
-    # TODO : Implement step function for AutoEncoder.
+    # TODO : Implement step function for AutoEncoder. 
+    # Hint : Use chamferDist defined in above
     preds = None
     loss = None
 
