@@ -64,7 +64,7 @@ conda install pytorch==1.13.0 torchvision==0.14.0 torchaudio==0.13.0 pytorch-cud
 
 Install necessary packages.
 ```bash
-pip install tqdm h5py matplotlib chamferdist
+pip install tqdm h5py matplotlib ninja chamferdist
 ```
 
 ## Task 0. Global feature extraction
