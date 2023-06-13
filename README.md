@@ -4,17 +4,21 @@ Session Host: **Hyunjin Kim** (Lead), **Eunji Hong** (Support)
 Last Updated: Jun 13, 2023.
 
 If you have any question, feel free to ask us via Slack DM.
-<!-- 
-## Introduction
-[PointNet](https://arxiv.org/abs/1612.00593) is a fundamental yet powerful neural network processing point cloud data. In the following programming assignments, we will learn how to use PointNet for different tasks including _classification_, _auto-encoding_, and _segmentation_.  -->
-<span style="color:blue">some *This is Blue italic.* text</span>
 
 ## Introduction to 3D Data
 <b>Due: Jul 3 (Mon) </b>
 
-[PointNet](https://arxiv.org/abs/1612.00593) is a fundamental yet powerful neural network processing point cloud data. In the first tutorial, we will learn how to use PointNet for different tasks including _classification_, _auto-encoding_, and _segmentation_ by implementing them. Since we aim to make you familiar with implementing neural network models and loss using Pytorch, we provide skeleton codes and what you have to do is just fill in the <r>**TODO**</r> parts of the codes. Before implementing codes, please read the [PointNet](https://arxiv.org/abs/1612.00593) paper and the provided codes careful and check how codes flow. Also, we recommend you to read how to implement codes using Pytorch ([Tutorial link](https://pytorch.org/tutorials/beginner/pytorch_with_examples.html)).
+[PointNet](https://arxiv.org/abs/1612.00593) is a fundamental yet powerful neural network processing point cloud data. In the first tutorial, we will learn how to use PointNet for different tasks including _classification_, _auto-encoding_, and _segmentation_ by implementing them. Since we aim to make you familiar with implementing neural network models and losses using Pytorch, we provide skeleton codes and what you have to do is just fill in the **TODO** parts of the codes. Before implementing codes, please read the [PointNet](https://arxiv.org/abs/1612.00593) paper and the provided codes careful and check how codes flow. Also, we recommend you to read how to implement codes using Pytorch ([Tutorial link](https://pytorch.org/tutorials/beginner/pytorch_with_examples.html)).
 
 ## Project Structure
+Below shows the overall structure of this repository. Bascially, in this tutorial, what you have to do is implementing models and losses by filling in the **TODO** parts of below 4 files.
+ ### TODOs
+```
+- model.py
+- train_cls.py
+- train_ae.py
+- train_seg.py
+```
 
 ```
 ├── model.py              <- PointNet models implementation. <TODO>
