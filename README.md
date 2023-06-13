@@ -127,7 +127,7 @@ We provide some util codes to help you. Feel free to use them if you need.
 - utils/model_checkpoint.py: tracks model's metric and automatically save only topk checkpoints.
 - visualization.ipynb: simple visulization code on jupyter lab.
 
-## Task 3. Point cloud Auto-Encoding
+## Task 3. Point cloud auto-Encoding
 **_success condition: You will get the perfect score if you achieve chamfer distance lower than 0.005 on the test set._**
 ![image](https://github.com/KorMachine/Internship_Week1/assets/43216580/eb932953-3ecb-4b8c-9129-03b15494bcb5)
 
