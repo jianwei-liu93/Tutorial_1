@@ -133,10 +133,19 @@ We provide some util codes to help you. Feel free to use them if you need.
 
 The PointNet Auto-encoder comprises an encoder that inputs point clouds and produces a 1024-sized global feature latent vector, and an MLP decoder that expands this latent vector incrementally until it reaches N*3. This tensor is reshaped into (N, 3), representing N points in 3D coordinates.
 
-To train auto-encoder, run:
+### To-dos
+```
+- model.py
+- train_seg.py
+```
+- Fill in the blank in [model.py](http://model.py) > `PointNetAutoEncoder`
+- Fill in the blank in train_ae.py > `step` and `train_step`
+- Train the model by the following command.
+
 ```
 python train_ae.py
 ```
+
 On ModelNet40 test set:
 |        | Chamfer Dist. |
 | ------ | ------------- |
