@@ -9,7 +9,7 @@ If you have any question, feel free to ask us via Slack DM.
 
 (Thanks to Juil Koo for providing the codebase.)
 
-## Introduction to 3D Data
+## PointNet: Point Cloud Processing Network
 
 [PointNet](https://arxiv.org/abs/1612.00593) is a fundamental yet powerful neural network processing point cloud data. In the first tutorial, we will learn how to use PointNet for different tasks including _classification_, _auto-encoding_, and _segmentation_ by implementing them. Since we aim to make you familiar with implementing neural network models and losses using Pytorch, we provide skeleton codes and what you have to do is just fill in the **TODO** parts of the codes. Before implementing codes, please read the [PointNet](https://arxiv.org/abs/1612.00593) paper and the provided codes careful and check how codes flow. Also, we recommend you to read how to implement codes using Pytorch ([Tutorial link](https://pytorch.org/tutorials/beginner/pytorch_with_examples.html)).
 
