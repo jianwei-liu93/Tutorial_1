@@ -98,7 +98,7 @@ class PointNetCls(nn.Module):
         Input:
             - pointcloud [B,N,3]
         Output:
-            - ...
+            - logits [B,num_classes]
         """
         # TODO : Implement forward function.
         pass
@@ -128,7 +128,7 @@ class PointNetPartSeg(nn.Module):
     def __init__():
         super().__init__()
 
-        # returns the logits for m part labels each point (m = # of parts).
+        # returns the logits for m part labels each point (m = # of parts = 50).
         # TODO: Implement part segmentation model based on PointNet Architecture.
         pass
 
