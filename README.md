@@ -71,7 +71,7 @@ pip install tqdm h5py matplotlib ninja chamferdist
 
 PointNet takes 3D point clouds(# points, 3) as inputs and extracts a 1024-sized global feature latent vector, which contains the geometric information of the input point clouds. This global feature vector will be used in the downstream tasks; point cloud classification, segmentation, and auto-encoding. In this part, you implement PointNetFeat model that only results out the global feature vector so that you can utilize this model for implementing the remaining 3 tasks.
 
-### To-dos
+### TODOs
 ```
 - model.py
 ```
@@ -86,7 +86,7 @@ PointNet takes 3D point clouds(# points, 3) as inputs and extracts a 1024-sized 
 
 In point cloud classification tasks, PointNet inputs point clouds (# points, 3) and generates a 1024-sized global feature latent vector, which is then reduced to the number of categories (k) through multi-layer perceptrons, forming logits for each category. 
 
-### To-dos
+### TODOs
 ```
 - model.py
 - train_cls.py
@@ -116,7 +116,7 @@ On ModelNet40 test set:
 
 For segmentation tasks, PointNet concatenates the second transformed feature with the global latent vector to form a point-wise feature tensor, which is then passed through an MLP to produce logits for m part labels.
 
-### To-dos
+### TODOs
 ```
 - model.py
 - train_seg.py
@@ -150,7 +150,7 @@ On ShapeNet Part test set:
 
 The PointNet Auto-encoder comprises an encoder that inputs point clouds and produces a 1024-sized global feature latent vector, and an MLP decoder that expands this latent vector incrementally until it reaches N*3. This tensor is reshaped into (N, 3), representing N points in 3D coordinates.
 
-### To-dos
+### TODOs
 ```
 - model.py
 - train_ae.py
