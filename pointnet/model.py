@@ -62,13 +62,13 @@ class PointNetFeat(nn.Module):
         self.input_transform = input_transform
         self.feature_transform = feature_transform
 
-        # point-wise mlp
-        # TODO : Implement point-wise mlp model based on PointNet Architecture.
-
         if self.input_transform:
             self.stn3 = STNKd(k=3)
         if self.feature_transform:
             self.stn64 = STNKd(k=64)
+
+        # point-wise mlp
+        # TODO : Implement point-wise mlp model based on PointNet Architecture.
 
     def forward(self, pointcloud):
         """
@@ -126,7 +126,10 @@ class PointNetAutoEncoder(nn.Module):
 
 class PointNetPartSeg(nn.Module):
     def __init__():
-        # TODO: Implement this
+        super().__init__()
+
+        # returns the logits for m part labels each point (m = # of parts).
+        # TODO: Implement part segmentation model based on PointNet Architecture.
         pass
 
     def forward(self, pointcloud):
@@ -137,8 +140,9 @@ class PointNetPartSeg(nn.Module):
             - logits: [B,50,N] | 50: # of point labels
             - ...
         """
-        # TODO: Implement this
+        # TODO: Implement forward function.
         pass
+
 
 def get_orthogonal_loss(feat_trans, reg_weight=1e-3):
     """
