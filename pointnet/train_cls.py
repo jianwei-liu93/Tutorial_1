@@ -13,13 +13,14 @@ def step(points, labels, model):
     """
     Input : 
         - points [B, N, 3]
-        - labels [B]
+        - ground truth labels [B]
     Output : loss
         - loss []
         - preds [B]
     """
-
+    
     # TODO : Implement step function for classification.
+
     loss = None
     preds = None
     return loss, preds

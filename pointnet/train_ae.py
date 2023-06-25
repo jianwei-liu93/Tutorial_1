@@ -19,8 +19,10 @@ def step(points, model):
         - loss []
         - preds [B, N, 3]
     """
+
     # TODO : Implement step function for AutoEncoder. 
     # Hint : Use chamferDist defined in above
+    
     preds = None
     loss = None
 

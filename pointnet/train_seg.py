@@ -16,14 +16,16 @@ def step(points, pc_labels, class_labels, model):
     """
     Input : 
         - points [B, N, 3]
-        - pc_labels [B, N]
-        - class_labels [B]
+        - ground truth pc_labels [B, N]
+        - ground truth class_labels [B]
     Output : loss
         - loss []
         - logits [B, C, N] (C: num_class)
         - preds [B, N]
     """
+    
     # TODO : Implement step function for segmentation.
+
     loss = None
     logits = None
     preds = None
