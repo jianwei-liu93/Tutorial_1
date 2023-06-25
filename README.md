@@ -66,7 +66,7 @@ Install necessary packages.
 pip install tqdm h5py matplotlib ninja chamferdist
 ```
 
-## Task 0. Global feature extraction
+## Task 0. Global Feature Extraction
 ![image](Figure/feat.png)
 
 PointNet takes 3D point clouds(# points, 3) as inputs and extracts a 1024-sized global feature latent vector, which contains the geometric information of the input point clouds. This global feature vector will be used in the downstream tasks; point cloud classification, segmentation, and auto-encoding. In this part, you implement PointNetFeat model that only results out the global feature vector so that you can utilize this model for implementing the remaining 3 tasks.
@@ -80,7 +80,7 @@ PointNet takes 3D point clouds(# points, 3) as inputs and extracts a 1024-sized 
 ※ When implementing PointNetFeat, you can utilize STDkd we give you in model.py code. 
 
 
-## Task 1. Point cloud classification
+## Task 1. Point Cloud Classification
 **_Success condition: You will get the perfect score if you achieve test accuracy over 85%._**
 ![image](Figure/cls.png)
 
@@ -110,7 +110,7 @@ On ModelNet40 test set:
 | Ours (w/ feature trans.)       | 87.7 %      | 
 
 
-## Task 2. Point cloud part Segmentation
+## Task 2. Point Cloud Part Segmentation
 **_Success condition: You will get the perfect score if you achieve test mIoU over 80%._**
 ![image](Figure/seg.png)
 
@@ -144,7 +144,7 @@ On ShapeNet Part test set:
 | Ours   | 83.6 %    | 
 
 
-## Task 3. Point cloud auto-Encoding
+## Task 3. Point Cloud Auto-Encoding
 **_success condition: You will get the perfect score if you achieve chamfer distance lower than 0.005 on the test set._**
 ![image](Figure/ae.png)
 
