@@ -153,7 +153,7 @@ The PointNet Auto-encoder comprises an encoder that inputs point clouds and prod
 ### To-dos
 ```
 - model.py
-- train_seg.py
+- train_ae.py
 ```
 - Fill in the **TODO** in `model.py` > `PointNetAutoEncoder`
 - Fill in the **TODO** in `train_ae.py` > `step` and `train_step`
