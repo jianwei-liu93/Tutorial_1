@@ -104,26 +104,6 @@ class PointNetCls(nn.Module):
         pass
 
 
-class PointNetAutoEncoder(nn.Module):
-    def __init__(self, num_points):
-        super().__init__()
-        self.pointnet_feat = PointNetFeat()
-
-        # Decoder is just a simple MLP that outputs N x 3 (x,y,z) coordinates.
-        # TODO : Implement decoder.
-
-    def forward(self, pointcloud):
-        """
-        Input:
-            - pointcloud [B,N,3]
-        Output:
-            - pointcloud [B,N,3]
-            - ...
-        """
-        # TODO : Implement forward function.
-        pass
-
-
 class PointNetPartSeg(nn.Module):
     def __init__():
         super().__init__()
@@ -141,6 +121,26 @@ class PointNetPartSeg(nn.Module):
             - ...
         """
         # TODO: Implement forward function.
+        pass
+
+
+class PointNetAutoEncoder(nn.Module):
+    def __init__(self, num_points):
+        super().__init__()
+        self.pointnet_feat = PointNetFeat()
+
+        # Decoder is just a simple MLP that outputs N x 3 (x,y,z) coordinates.
+        # TODO : Implement decoder.
+
+    def forward(self, pointcloud):
+        """
+        Input:
+            - pointcloud [B,N,3]
+        Output:
+            - pointcloud [B,N,3]
+            - ...
+        """
+        # TODO : Implement forward function.
         pass
 
 
