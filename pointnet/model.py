@@ -99,6 +99,7 @@ class PointNetCls(nn.Module):
             - pointcloud [B,N,3]
         Output:
             - logits [B,num_classes]
+            - ...
         """
         # TODO : Implement forward function.
         pass
