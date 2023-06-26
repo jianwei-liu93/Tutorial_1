@@ -73,9 +73,10 @@ class PointNetFeat(nn.Module):
     def forward(self, pointcloud):
         """
         Input:
-            pointcloud: [B,N,3]
+            - pointcloud: [B,N,3]
         Output:
-            Global feature: [B,1024]
+            - Global feature: [B,1024]
+            - ...
         """
 
         # TODO : Implement forward function.
