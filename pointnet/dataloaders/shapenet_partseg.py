@@ -29,8 +29,8 @@ class ShapeNetPartSegDataset(torch.utils.data.Dataset):
             self.class_label.append(f["label"][:])
 
         self.data = np.concatenate(self.data, 0).astype(np.float32)
-        self.pc_label = np.concatenate(self.pc_label, 0).astype(np.long)
-        self.class_label = np.concatenate(self.class_label, 0).astype(np.long)
+        self.pc_label = np.concatenate(self.pc_label, 0).astype(np.int_)
+        self.class_label = np.concatenate(self.class_label, 0).astype(np.int_)
 
     def __getitem__(self, idx):
         pc = torch.from_numpy(pc_normalize(self.data[idx]))

@@ -33,7 +33,7 @@ class ModelNetDataset(torch.utils.data.Dataset):
             self.normal.append(f["normal"][:])
 
         self.data = np.concatenate(self.data, 0).astype(np.float32)
-        self.label = np.concatenate(self.label, 0).astype(np.long)
+        self.label = np.concatenate(self.label, 0).astype(np.int_)
         self.normal = np.concatenate(self.normal, 0).astype(np.float32)
 
     def __getitem__(self, idx):
